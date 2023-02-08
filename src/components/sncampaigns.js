@@ -8,69 +8,70 @@ import Header from "./visuals/Header";
 import { useTheme } from "@mui/material";
 
 const SNcampaigns = () => {
+  console.log('server url is: ', process.env.REACT_APP_SERVER_URL)
 
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
-    const [brands, setBrands] = useState([])
+  const [brands, setBrands] = useState([])
 
-    //occurs after render
-    useEffect(() => {
-        const fetchBrands= async () => {
-            //initiate HTTP request
-            const response = await fetch('/campaigns')
-            const json = await response.json()
-            // Loop through each object returned from backend
-            const formattedBrands = json.map(brand => {
-              // Loop through each key and check to see if its a number, if it is, convert it to have commas
-              for (const [key, value] of Object.entries(brand)) {
-                if (typeof value === 'number') {
-                  brand[key] = value.toLocaleString();
-                }
-              }
-              return brand;
-            });
-
-              if (response.ok) {
-                  setBrands(formattedBrands)
-              }
+  //occurs after render
+  useEffect(() => {
+    const fetchBrands = async () => {
+      //initiate HTTP request
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/campaigns`)
+      const json = await response.json()
+      // Loop through each object returned from backend
+      const formattedBrands = json.map(brand => {
+        // Loop through each key and check to see if its a number, if it is, convert it to have commas
+        for (const [key, value] of Object.entries(brand)) {
+          if (typeof value === 'number') {
+            brand[key] = value.toLocaleString();
           }
+        }
+        return brand;
+      });
 
-        fetchBrands()
-    }, [])
+      if (response.ok) {
+        setBrands(formattedBrands)
+      }
+    }
 
-    const columns = [
-        {
-            field: "client", 
-            headerName: "Client", 
-            flex: 1,
-            cellClassName: "client-column--cell",
-        },
-        {
-            field: "campaign", 
-            headerName: "Campaign",
-            flex: 1,
-        },
-        {
-            field: "live", 
-            headerName: "Launch Date",
-            flex: 1,
-        },
-        {
-            field: "imp_total", 
-            headerName: "Impressions",
-            flex: 1,
-        },
-        {
-            field: "view_total", 
-            headerName: "Views",
-            flex: 1,
-        },
-        {
-            field: "signup", 
-            headerName: "Sign-ups",
-            flex: 1,
-        },
+    fetchBrands()
+  }, [])
+
+  const columns = [
+    {
+      field: "client",
+      headerName: "Client",
+      flex: 1,
+      cellClassName: "client-column--cell",
+    },
+    {
+      field: "campaign",
+      headerName: "Campaign",
+      flex: 1,
+    },
+    {
+      field: "live",
+      headerName: "Launch Date",
+      flex: 1,
+    },
+    {
+      field: "imp_total",
+      headerName: "Impressions",
+      flex: 1,
+    },
+    {
+      field: "view_total",
+      headerName: "Views",
+      flex: 1,
+    },
+    {
+      field: "signup",
+      headerName: "Sign-ups",
+      flex: 1,
+    },
   ];
 
   return (
