@@ -49,7 +49,7 @@ const Camparicampaigns = () => {
   useEffect(() => {
     const fetchBrands = async () => {
       //initiate HTTP request
-      const response = await fetch('/campaigns/campari')
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/campaigns/campari`)
       const json = await response.json()
 
       const formattedBrands = json.map(brand => {

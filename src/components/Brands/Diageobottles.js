@@ -67,7 +67,7 @@ function Diageobottles() {
   useEffect(() => {
     const fetchSales = async () => {
 
-      const response = await fetch('/sales/diageo')
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/diageo`)
       const json = await response.json()
 
       const formattedBrands = json.map(brand => {

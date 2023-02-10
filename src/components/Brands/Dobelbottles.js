@@ -68,7 +68,7 @@ function Dobelbottles() {
   useEffect(() => {
     const fetchSales = async () => {
 
-      const response = await fetch('/sales/dobel')
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/dobel`)
       const json = await response.json()
 
       const formattedBrands = json.map(brand => {

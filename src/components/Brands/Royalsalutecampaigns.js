@@ -3,8 +3,6 @@ import { useEffect, useState } from "react"
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-
-import Header from "../visuals/Header";
 import { useTheme } from "@mui/material";
 
 
@@ -50,7 +48,7 @@ const Royalsalutecampaigns = () => {
   useEffect(() => {
     const fetchBrands = async () => {
       //initiate HTTP request
-      const response = await fetch('/campaigns/royalsalute')
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/campaigns/royalsalute`)
       const json = await response.json()
 
       const formattedBrands = json.map(brand => {

@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react"
 import { Box, ThemeProvider, createTheme } from '@mui/system';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@mui/material/Paper';
 import Grid from '@material-ui/core/Grid';
 
 const theme = createTheme({
@@ -43,7 +42,7 @@ function Goslingscard() {
     useEffect(() => {
         const fetchSales = async () => {
 
-            const response = await fetch('/sales/goslings/sales')
+            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/goslings`)
             const json = await response.json()
 
             const formattedBrands = json.map(sale => {
@@ -80,9 +79,10 @@ function Goslingscard() {
                             maxWidth: 300,
                             color: 'black',
                             marginLeft: 2,
+                            marginBottom: 3,
                         }}
                     >
-                        <Grid container spacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                        <Grid container spacing={1}>
                             <Grid item xs={6} sx={{ color: 'text.secondary' }}> Product Sales</Grid>
                             <Grid item xs={6} sx={{ color: 'text.primary', fontSize: 34, fontWeight: 'medium' }}>Units Sold</Grid>
                             <Grid item xs={6} sx={{ color: 'text.primary', fontSize: 34, fontWeight: 'medium' }}><h2>$5,388</h2></Grid>

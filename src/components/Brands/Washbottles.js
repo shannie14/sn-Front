@@ -67,7 +67,7 @@ function Washbottles() {
   useEffect(() => {
     const fetchSales = async () => {
 
-      const response = await fetch('/sales/wash')
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/wash`)
       const json = await response.json()
       console.log(json)
 

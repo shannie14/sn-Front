@@ -67,7 +67,7 @@ function Waterfordbottles() {
   useEffect(() => {
     const fetchSales = async () => {
 
-      const response = await fetch('/sales/waterford')
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/waterford`)
       const json = await response.json()
       console.log(json)
 

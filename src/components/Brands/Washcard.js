@@ -43,7 +43,7 @@ function Washcard() {
     useEffect(() => {
         const fetchSales = async () => {
 
-            const response = await fetch('/sales/wash')
+            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/wash`)
             const json = await response.json()
 
             const formattedBrands = json.map(sale => {
@@ -80,9 +80,10 @@ function Washcard() {
                             maxWidth: 300,
                             color: 'black',
                             marginLeft: 2,
+                            marginBottom: 2,
                         }}
                     >
-                        <Grid container spacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                        <Grid container spacing={1}>
                             <Grid item xs={6} sx={{ color: 'text.secondary' }}> Product Sales</Grid>
                             <Grid item xs={6} sx={{ color: 'text.primary', fontSize: 34, fontWeight: 'medium' }}>Units Sold</Grid>
                             <Grid item xs={6} sx={{ color: 'text.primary', fontSize: 34, fontWeight: 'medium' }}><h2>$2,805.68</h2></Grid>
@@ -99,6 +100,7 @@ function Washcard() {
                             maxWidth: 300,
                             color: 'black',
                             marginLeft: 2,
+                            marginBottom: 2,
                         }}
                     >
                         <Grid container spacing={1}>

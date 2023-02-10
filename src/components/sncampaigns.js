@@ -14,6 +14,7 @@ const SNcampaigns = () => {
   const colors = tokens(theme.palette.mode);
 
   const [brands, setBrands] = useState([])
+  console.log(brands);
 
   //occurs after render
   useEffect(() => {
@@ -61,6 +62,15 @@ const SNcampaigns = () => {
       field: "imp_total",
       headerName: "Impressions",
       flex: 1,
+      sortComparator: (row1, row2) => {
+        if (!row1) {
+          return true;
+        }
+        if (!row2) {
+          return true;
+        }
+        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
+      }
     },
     {
       field: "view_total",
