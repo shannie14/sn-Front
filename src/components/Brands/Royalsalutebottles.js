@@ -67,7 +67,7 @@ function Royalsalutebottles() {
   useEffect(() => {
     const fetchSales = async () => {
 
-      const response = await fetch('/sales/royalsalute')
+      const response = (`${process.env.REACT_APP_SERVER_URL}/sales/royalsalute`)
       const json = await response.json()
       console.log(json)
 

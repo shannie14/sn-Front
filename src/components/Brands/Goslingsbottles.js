@@ -3,91 +3,90 @@ import { useEffect, useState } from "react"
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-
-import Header from "../visuals/Header";
 import { useTheme } from "@mui/material";
 
 
 function Goslingsbottles() {
-    const columns = [
-        {
-            field: "product", 
-            headerName: "PRODUCT", 
-            flex: 1,
-            minWidth: 200},
-  
-        {
-            field: "unitsT", 
-            headerName: "ALL UNITS SOLD",
-            flex: 1,
-        },
-        {
-            field: "salesT", 
-            headerName: "ALL SALES",
-            flex: 1,
-        },
-        {
-            field: "units23", 
-            headerName: "2023",
-            flex: 1,
-        },
-        {
-            field: "sales23", 
-            headerName: "",
-            flex: 1,
-        },
-        {
-            field: "units22", 
-            headerName: "2022",
-            flex: 1,
-        },
-        {
-            field: "sales22", 
-            headerName: "",
-            flex: 1,
-        },
-                {
-            field: "units21", 
-            headerName: "2021",
-            flex: 1,
-        },
-        {
-            field: "sales21", 
-            headerName: "",
-            flex: 1,
-        },
+  const columns = [
+    {
+      field: "product",
+      headerName: "PRODUCT",
+      flex: 1,
+      minWidth: 200
+    },
+
+    {
+      field: "unitsT",
+      headerName: "ALL UNITS SOLD",
+      flex: 1,
+    },
+    {
+      field: "salesT",
+      headerName: "ALL SALES",
+      flex: 1,
+    },
+    {
+      field: "units23",
+      headerName: "2023",
+      flex: 1,
+    },
+    {
+      field: "sales23",
+      headerName: "",
+      flex: 1,
+    },
+    {
+      field: "units22",
+      headerName: "2022",
+      flex: 1,
+    },
+    {
+      field: "sales22",
+      headerName: "",
+      flex: 1,
+    },
+    {
+      field: "units21",
+      headerName: "2021",
+      flex: 1,
+    },
+    {
+      field: "sales21",
+      headerName: "",
+      flex: 1,
+    },
   ];
 
 
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
   const [sales, setSales] = useState([])
 
   useEffect(() => {
     const fetchSales = async () => {
 
-    const response = await fetch ('/sales/goslings')
-    const json = await response.json()
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/goslings`)
+      const json = await response.json()
 
-    const formattedBrands = json.map(brand => {
-              for (const [key, value] of Object.entries(brand)) {
-                if (typeof value ==='number'){
-                  brand[key] = value.toLocaleString();
-                }
-              }
-              return brand;
-            })
+      const formattedBrands = json.map(brand => {
+        for (const [key, value] of Object.entries(brand)) {
+          if (typeof value === 'number') {
+            brand[key] = value.toLocaleString();
+          }
+        }
+        return brand;
+      })
 
-    if (response.ok) {
-      setSales(formattedBrands)
+      if (response.ok) {
+        setSales(formattedBrands)
+      }
     }
-  }
 
     fetchSales()
 
   }, []);
- 
+
   return (
     <Box m="20px">
       <Box
@@ -100,7 +99,7 @@ function Goslingsbottles() {
           "& .MuiDataGrid-cell": {
             borderBottom: "none",
             fontSize: "16px",
-            
+
           },
           "& .name-column--cell": {
             color: colors.greenAccent[300],

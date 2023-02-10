@@ -43,7 +43,7 @@ function Diageocard() {
     useEffect(() => {
         const fetchSales = async () => {
 
-            const response = await fetch('/sales/diageo')
+            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/diageo`)
             const json = await response.json()
 
             const formattedBrands = json.map(sale => {
@@ -80,6 +80,7 @@ function Diageocard() {
                             maxWidth: 300,
                             color: 'black',
                             marginLeft: 2,
+                            marginBottom: 3,
                         }}
                     >
                         <Grid container spacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -99,6 +100,7 @@ function Diageocard() {
                             maxWidth: 300,
                             color: 'black',
                             marginLeft: 2,
+                            marginBottom: 3,
                         }}
                     >
                         <Grid container spacing={1}>

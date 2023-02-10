@@ -21,21 +21,57 @@ const Bacardicampaigns = () => {
       field: "live",
       headerName: "LAUNCH",
       flex: 1,
+      sortComparator: (row1, row2) => {
+        if (!row1) {
+          return true;
+        }
+        if (!row2) {
+          return true;
+        }
+        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
+      }
     },
     {
       field: "imp_total",
       headerName: "IMPRESSIONS",
       flex: 1,
+      sortComparator: (row1, row2) => {
+        if (!row1) {
+          return true;
+        }
+        if (!row2) {
+          return true;
+        }
+        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
+      }
     },
     {
       field: "view_total",
       headerName: "VIEWS",
       flex: 1,
+      sortComparator: (row1, row2) => {
+        if (!row1) {
+          return true;
+        }
+        if (!row2) {
+          return true;
+        }
+        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
+      }
     },
     {
       field: "signup",
       headerName: "SIGN-UPS",
       flex: 1,
+      sortComparator: (row1, row2) => {
+        if (!row1) {
+          return true;
+        }
+        if (!row2) {
+          return true;
+        }
+        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
+      }
     },
   ];
 
@@ -44,12 +80,13 @@ const Bacardicampaigns = () => {
   const colors = tokens(theme.palette.mode);
 
   const [brands, setBrands] = useState([])
+  console.log(brands);
 
   //occurs after render
   useEffect(() => {
     const fetchBrands = async () => {
       //initiate HTTP request
-      const response = await fetch('/campaigns/bacardi')
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/campaigns/bacardi`)
       const json = await response.json()
 
       const formattedBrands = json.map(brand => {

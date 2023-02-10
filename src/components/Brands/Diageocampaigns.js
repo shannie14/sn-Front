@@ -49,7 +49,7 @@ const Diageocampaigns = () => {
   useEffect(() => {
     const fetchBrands = async () => {
       //initiate HTTP request
-      const response = await fetch('/campaigns/diageo')
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/campaigns/diageo`)
       const json = await response.json()
 
       const formattedBrands = json.map(brand => {
