@@ -17,6 +17,8 @@ import Royalsalute from "../src/pages/Royalsalute"
 import Waterford from "../src/pages/Waterford"
 import Wash from "../src/pages/Wash"
 
+import Login from '../src/components/Login'
+
 
 import Sidebar from '../src/components/Sidebar'
 import Topbar from '../src/components/Topbar'
@@ -34,7 +36,8 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
-              <Route exact path="/" element={<Home />} />
+              <Route exact path="/" element={<Login />} />
+              <Route path="/Home" element={<Home />} />
               <Route path="/brand" element={<Brandlist />} />
               <Route path="/Bacardi" element={<Bacardi />} />
               <Route path="/Goslings" element={<Goslings />} />
@@ -43,7 +46,7 @@ function App() {
               <Route path="/Jeffersons" element={<Jeffersons />} />
               <Route path="/Dobel" element={<Dobel />} />
               <Route path="/Royalsalute" element={<Royalsalute />} />
-              <Route path="/Stranahans" element={<Royalsalute />} />
+              <Route path="/Stranahans" element={<Stranahans />} />
               <Route path="/Waterford" element={<Waterford />} />
               <Route path="/Wash" element={<Wash />} />
 
