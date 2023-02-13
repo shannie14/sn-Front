@@ -149,19 +149,38 @@ function Bacardibottles() {
           }
         }
         return brand;
-      })
+
+      }
+
+      )
 
       if (response.ok) {
         setSales(formattedBrands)
       }
     }
 
+
+
     fetchSales()
 
-  }, []);
+
+
+
+
+  }, [])
+
+  //gross
+  // const sum = sales.reduce(())
+
+  //accessing object properties
+
+
+
 
   return (
     <Box m="20px">
+      <p>Shannon</p>
+
       <Box
         m="40px 0 0 0"
         height="50vh"
