@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-
     const handleLogin = async (e) => {
         e.preventDefault();
         const data = {
@@ -15,9 +13,13 @@ const Login = () => {
         const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users`, data,
             {
                 method: 'POST',
-            })
-        if (!response.ok) { console.log('user not found'); }
-        else { navigate('/home') }
+            });
+        const userCredentials = await response.json();
+        if (!userCredentials) {
+            console.log('user not found');
+        } else {
+            navigate('/home')
+        }
     };
     return (
         <div style={{ margin: "5em" }}>
@@ -45,4 +47,3 @@ const Login = () => {
     )
 }
 export default Login;
-
