@@ -10,10 +10,17 @@ const Login = () => {
             username: username,
             password: password
         }
-        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users`, data,
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users`,
             {
                 method: 'POST',
-            });
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }
+        );
+
         const userCredentials = await response.json();
         if (!userCredentials) {
             console.log('user not found');
