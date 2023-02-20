@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <div className="home">
             <SNcampaigns />
-
+            <p>test</p>
         </div>
     )
 }
