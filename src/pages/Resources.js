@@ -16,8 +16,8 @@ const Resources = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     //toggle
-    const [isOpen1, setIsOpen1] = useState(false);
-    const [isOpen2, setIsOpen2] = useState(false);
+    const [isOpen1, setIsOpen1] = useState(true);
+    const [isOpen2, setIsOpen2] = useState(true);
     const toggleOpen1 = () => { setIsOpen1(!isOpen1); }
     const toggleOpen2 = () => { setIsOpen2(!isOpen2); }
 
