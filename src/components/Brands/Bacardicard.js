@@ -70,7 +70,7 @@ function Bacardicard() {
         <div className={classes.root}>
             <ThemeProvider theme={theme}>
                 <Grid container spacing={3}>
-                    <Box
+                    <Box width={{ xs: '70%', sm: '80%', md: '70%', lg: '90%' }}>
                         sx={{
                             bgcolor: 'background.paper',
                             boxShadow: 1,

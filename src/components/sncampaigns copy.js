@@ -46,7 +46,7 @@ const SNcampaigns = () => {
       field: "client",
       headerName: "Client",
       flex: 1,
-      // cellClassName: "client-column--cell",
+      cellClassName: "client-column--cell",
     },
     {
       field: "campaign",
@@ -111,16 +111,6 @@ const SNcampaigns = () => {
     },
   ];
 
-  function CustomSortComparator(row1, row2) {
-    if (row1 < row2) {
-      return -1;
-    }
-    if (row2 < row1) {
-      return true;
-    }
-    return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-  }
-
   return (
     <Box m="20px">
       <Header
@@ -164,7 +154,6 @@ const SNcampaigns = () => {
           rows={brands}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
-          sortComparator={CustomSortComparator}
         />
       </Box>
     </Box>

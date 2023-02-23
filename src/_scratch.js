@@ -51,3 +51,41 @@ return (
 )
 }
 
+const ExampleDataGrid = () => {
+  const [sortModel, setSortModel] = useState < GridSortModel > ([
+    {
+      field: 'lastName',
+      sort: 'asc',
+    },
+  ]);
+
+  const handleSortModelChange = (model) => {
+    setSortModel(model);
+  }
+};
+
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const ImageComponent = () => {
+  const [imageData, setImageData] = useState([]);
+
+  useEffect(() => {
+    // Fetch the image data from MongoDB using axios
+    axios.get('/api/images').then(response => {
+      setImageData(response.data);
+    }).catch(error => {
+      console.error(error);
+    });
+  }, []);
+
+  return (
+    <div>
+      {imageData.map(image => (
+        <a key={image._id} href={image.url} target="_blank" rel="noopener noreferrer">
+          <img src={image.url} alt={`Image ${image._id}`} />
+        </a>
+      ))}
+    </div>
+  );
+}

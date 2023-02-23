@@ -15,6 +15,7 @@ import Goslings from '../src/pages/Goslings'
 import Jeffersons from '../src/pages/Jeffersons'
 import Dobel from '../src/pages/Dobel'
 import Stranahans from '../src/pages/Stranahans'
+import Resources from "../src/pages/Resources"
 import Royalsalute from "../src/pages/Royalsalute"
 import Waterford from "../src/pages/Waterford"
 import Wash from "../src/pages/Wash"
@@ -48,6 +49,7 @@ function App() {
               <Route path="/Diageo" element={<Diageo />} />
               <Route path="/Jeffersons" element={<Jeffersons />} />
               <Route path="/Dobel" element={<Dobel />} />
+              <Route path="/Resources" element={<Resources />} />
               <Route path="/Royalsalute" element={<Royalsalute />} />
               <Route path="/Stranahans" element={<Stranahans />} />
               <Route path="/Waterford" element={<Waterford />} />
