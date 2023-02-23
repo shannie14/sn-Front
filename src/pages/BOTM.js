@@ -32,7 +32,9 @@ const Botm = () => {
     };
 
     const options = {
-        radius: 150,
+        radius: 200,
+
+        layout: { align: { vertical: 'top' } },
 
         plugins: {
             datalabels: {},
@@ -64,24 +66,26 @@ const Botm = () => {
     return (
 
         <div>
-            <Box m="20px">
+            <Box display="flex" justifyContent="center" alignItems="top" minHeight="100vh">
+                <Box width={{ xs: '70%', sm: '80%', md: '70%', lg: '90%' }}>
 
-                <Header
-                    title="Monthly Subscribers"
-                    subtitle="since March 2021"
-                />
+                    <Header
+                        title="Monthly Subscribers"
+                        subtitle="since March 2021"
+                    />
 
-                <Bargraph />
+                    <Bargraph />
 
-                <Header title="Current Members by Category" />
+                    <Header title="Current Members by Category" />
 
-                <div className="chart-container">
-                    <Doughnut data={data} options={options} onClick={null} />
+                    <div className="chart-container">
 
-                </div>
+                        <Doughnut data={data} options={options} onClick={null} />
+
+                    </div>
 
 
-
+                </Box >
             </Box >
         </div >
     )

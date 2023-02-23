@@ -3,7 +3,8 @@ import { ProSidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { tokens } from "../theme";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import EqualizerOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import FolderCopyOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LiquorIcon from '@mui/icons-material/Liquor';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
@@ -107,13 +108,19 @@ const Sidebar = () => {
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
-              title="Dashboard"
-              to="/"
-              icon={<HomeOutlinedIcon />}
+              title="NBTV Resources"
+              to="/Resources"
+              icon={<FolderCopyOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-
+            <Item
+              title="Dashboard"
+              to="/"
+              icon={<EqualizerOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
             <Typography
               variant="h6"
               color={colors.grey[300]}
