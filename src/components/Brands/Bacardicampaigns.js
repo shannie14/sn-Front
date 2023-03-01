@@ -3,76 +3,11 @@ import { useEffect, useState } from "react"
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-
 import { useTheme } from "@mui/material";
 
+import campaignColumns from "../visuals/CampaignCol";
+
 const Bacardicampaigns = () => {
-  const columns = [
-    {
-      field: "campaign",
-      headerName: "CAMPAIGN",
-      flex: 1,
-      minWidth: 200
-    },
-    {
-      field: "live",
-      headerName: "LAUNCH",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-    {
-      field: "imp_total",
-      headerName: "IMPRESSIONS",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-    {
-      field: "view_total",
-      headerName: "VIEWS",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-    {
-      field: "signup",
-      headerName: "SIGN-UPS",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-  ];
-
-
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -103,12 +38,11 @@ const Bacardicampaigns = () => {
     fetchBrands()
   }, []);
 
-
   return (
     <Box m="20px">
       <Box
         m="40px 0 0 0"
-        height="30vh"
+        height="50vh"
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
@@ -145,8 +79,9 @@ const Bacardicampaigns = () => {
         <DataGrid
           getRowId={(row) => row._id}
           rows={brands}
-          columns={columns}
+          columns={campaignColumns}
           components={{ Toolbar: GridToolbar }}
+          sortingOrder={['desc', 'asc']}
         />
       </Box>
     </Box>
