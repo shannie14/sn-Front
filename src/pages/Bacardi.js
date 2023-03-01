@@ -23,12 +23,13 @@ const Bacardi = () => {
 
     //display
     return (
-        <Box m="20px">
+        <div style={{ marginLeft: "15px" }
+        }>
 
             {/* HEADER */}
-            <Box display="flex" justifyContent="space-between" alignItems="center">
+            < Box display="flex" justifyContent="space-between" alignItems="center" >
                 <Header title="Bacardi" />
-            </Box>
+            </Box >
 
             <Bacardicard />
 
@@ -42,7 +43,7 @@ const Bacardi = () => {
                 <Bacardibottles />
 
             </Box>
-        </Box>
+        </div >
 
 
 
