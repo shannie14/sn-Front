@@ -6,7 +6,6 @@ import { tokens } from "../../theme";
 
 import { useTheme } from "@mui/material";
 
-
 function Bacardibottles() {
   const columns = [
     {
@@ -15,7 +14,6 @@ function Bacardibottles() {
       flex: 1,
       minWidth: 200
     },
-
     {
       field: "unitsT",
       headerName: "ALL UNITS SOLD",
@@ -130,7 +128,6 @@ function Bacardibottles() {
     },
   ];
 
-
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -144,28 +141,20 @@ function Bacardibottles() {
 
       const formattedBrands = json.map(brand => {
         for (const [key, value] of Object.entries(brand)) {
-          if (typeof value === 'number') {
-            brand[key] = value.toLocaleString();
+          if (typeof value === 'number' && ['salesT', 'sales23', 'sales22', 'sales21', 'sales20'].includes(key)) {
+            brand[key] = value.toLocaleString("en-US", {
+              style: "currency",
+              currency: "USD"
+            });
           }
         }
         return brand;
+      })
 
-      }
-
-      )
-
-      if (response.ok) {
-        setSales(formattedBrands)
-      }
+      if (response.ok) { setSales(formattedBrands) }
     }
 
-
-
     fetchSales()
-
-
-
-
 
   }, [])
 
@@ -179,7 +168,6 @@ function Bacardibottles() {
 
   return (
     <Box m="20px">
-      <p>Shannon</p>
 
       <Box
         m="40px 0 0 0"

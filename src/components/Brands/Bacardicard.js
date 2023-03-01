@@ -6,7 +6,10 @@ function Bacardicard() {
     const [sum, setSum] = useState([])
     const [sale, setSale] = useState([])
     const [unit, setUnit] = useState([])
+    const [gross, setGross] = useState([])
+    const [view, setView] = useState([])
 
+    //IMP & VIEW
     useEffect(() => {
         fetch(`${process.env.REACT_APP_SERVER_URL}/campaigns/bacardi`)
             .then(response => response.json())
@@ -30,6 +33,22 @@ function Bacardicard() {
     }, [data]);
 
     useEffect(() => {
+        const sumOfViews = data.reduce((total, brand) => {
+
+            const propertyView = parseFloat(brand.view_total);
+            return isNaN(propertyView) ? total : total + propertyView;
+        }, 0);
+
+        const formattedView = sumOfViews.toLocaleString();
+        console.log(formattedView)
+
+        setView(formattedView);
+
+    }, [data]);
+
+
+    //Units & Sales
+    useEffect(() => {
         fetch(`${process.env.REACT_APP_SERVER_URL}/sales/bacardi`)
             .then(response => response.json())
             .then(sale => setSale(sale))
@@ -49,10 +68,21 @@ function Bacardicard() {
 
         setUnit(formattedUnit);
 
-    }, [data]);
+    }, [sale]);
 
+    useEffect(() => {
+        const sumOfSales = sale.reduce((total, brand) => {
 
+            const totalSales = parseFloat(brand.salesT);
+            return isNaN(totalSales) ? total : total + totalSales;
+        }, 0);
 
+        const formattedSale = sumOfSales.toLocaleString();
+        console.log(formattedSale)
+
+        setGross(formattedSale);
+
+    }, [sale]);
 
     return (
         <section className="two-column">
@@ -63,7 +93,7 @@ function Bacardicard() {
                 </div>
                 <div className="rowCard">
                     <div className="columnCard">TOTAL SALES:</div>
-                    <div className="columnCard2">Text 4</div>
+                    <div className="columnCard2">${gross}</div>
                 </div>
             </div>
             <div className="white-box2">
@@ -73,7 +103,7 @@ function Bacardicard() {
                 </div>
                 <div className="rowCard">
                     <div className="columnCard">VIEWS:</div>
-                    <div className="columnCard2"></div>
+                    <div className="columnCard2">{view}</div>
                 </div>
             </div>
         </section >
