@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../components/visuals/Header";
 import { tokens } from "../theme";
 
-
 //page components
 import Stranahansbottles from "../components/Brands/Stranahansbottles";
 import Stranahanscampaigns from "../components/Brands/Stranahanscampaigns";
@@ -12,14 +11,8 @@ import Stranahanscard from "../components/Brands/Stranahanscard"
 //architecture
 import { Box, useTheme } from "@mui/material";
 
-
-
 //functiionality
 const Stranahans = () => {
-
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
-
 
     //display
     return (

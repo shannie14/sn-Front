@@ -3,62 +3,12 @@ import { useEffect, useState } from "react"
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-
 import { useTheme } from "@mui/material";
+
+import SaleCol from "../visuals/SaleCol";
 
 
 function Royalsalutebottles() {
-  const columns = [
-    {
-      field: "product",
-      headerName: "PRODUCT",
-      flex: 1,
-      minWidth: 200
-    },
-
-    {
-      field: "unitsT",
-      headerName: "ALL UNITS SOLD",
-      flex: 1,
-    },
-    {
-      field: "salesT",
-      headerName: "ALL SALES",
-      flex: 1,
-    },
-    {
-      field: "units23",
-      headerName: "2023",
-      flex: 1,
-    },
-    {
-      field: "sales23",
-      headerName: "",
-      flex: 1,
-    },
-    {
-      field: "units22",
-      headerName: "2022",
-      flex: 1,
-    },
-    {
-      field: "sales22",
-      headerName: "",
-      flex: 1,
-    },
-    {
-      field: "units21",
-      headerName: "2021",
-      flex: 1,
-    },
-    {
-      field: "sales21",
-      headerName: "",
-      flex: 1,
-    },
-  ];
-
-
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -73,21 +23,20 @@ function Royalsalutebottles() {
 
       const formattedBrands = json.map(brand => {
         for (const [key, value] of Object.entries(brand)) {
-          if (typeof value === 'number') {
-            brand[key] = value.toLocaleString();
+          if (typeof value === 'number' && ['salesT', 'sales23', 'sales22', 'sales21', 'sales20'].includes(key)) {
+            brand[key] = value.toLocaleString("en-US", {
+              style: "currency",
+              currency: "USD"
+            });
           }
         }
         return brand;
       })
 
-      if (response.ok) {
-        setSales(formattedBrands)
-      }
+      if (response.ok) { setSales(formattedBrands) }
     }
-
     fetchSales()
-
-  }, []);
+  }, [])
 
   return (
     <Box m="20px">
@@ -130,8 +79,9 @@ function Royalsalutebottles() {
         <DataGrid
           getRowId={(row) => row._id}
           rows={sales}
-          columns={columns}
+          columns={SaleCol}
           components={{ Toolbar: GridToolbar }}
+          sortingOrder={['desc', 'asc']}
         />
       </Box>
     </Box>

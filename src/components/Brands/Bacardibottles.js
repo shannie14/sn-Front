@@ -3,131 +3,11 @@ import { useEffect, useState } from "react"
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-
 import { useTheme } from "@mui/material";
 
-function Bacardibottles() {
-  const columns = [
-    {
-      field: "product",
-      headerName: "PRODUCT",
-      flex: 1,
-      minWidth: 200
-    },
-    {
-      field: "unitsT",
-      headerName: "ALL UNITS SOLD",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-    {
-      field: "salesT",
-      headerName: "ALL SALES",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-    {
-      field: "units23",
-      headerName: "2023",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-    {
-      field: "sales23",
-      headerName: "",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-    {
-      field: "units22",
-      headerName: "2022",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-    {
-      field: "sales22",
-      headerName: "",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-    {
-      field: "units21",
-      headerName: "2021",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-    {
-      field: "sales21",
-      headerName: "",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-  ];
+import SaleCol from "../visuals/SaleCol";
 
+function Bacardibottles() {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -153,18 +33,8 @@ function Bacardibottles() {
 
       if (response.ok) { setSales(formattedBrands) }
     }
-
     fetchSales()
-
   }, [])
-
-  //gross
-  // const sum = sales.reduce(())
-
-  //accessing object properties
-
-
-
 
   return (
     <Box m="20px">
@@ -208,8 +78,9 @@ function Bacardibottles() {
         <DataGrid
           getRowId={(row) => row._id}
           rows={sales}
-          columns={columns}
+          columns={SaleCol}
           components={{ Toolbar: GridToolbar }}
+          sortingOrder={['desc', 'asc']}
         />
       </Box>
     </Box>

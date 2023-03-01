@@ -5,39 +5,9 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { useTheme } from "@mui/material";
 
+import campaignColumns from "../visuals/CampaignCol";
 
 const Jeffersonscampaigns = () => {
-
-  const columns = [
-    {
-      field: "campaign",
-      headerName: "CAMPAIGN",
-      flex: 1,
-      minWidth: 200
-    },
-
-    {
-      field: "live",
-      headerName: "LAUNCH",
-      flex: 1,
-    },
-    {
-      field: "imp_total",
-      headerName: "IMPRESSIONS",
-      flex: 1,
-    },
-    {
-      field: "view_total",
-      headerName: "VIEWS",
-      flex: 1,
-    },
-    {
-      field: "signup",
-      headerName: "SIGN-UPS",
-      flex: 1,
-    },
-  ];
-
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -73,7 +43,7 @@ const Jeffersonscampaigns = () => {
     <Box m="20px">
       <Box
         m="40px 0 0 0"
-        height="30vh"
+        height="50vh"
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
@@ -110,8 +80,9 @@ const Jeffersonscampaigns = () => {
         <DataGrid
           getRowId={(row) => row._id}
           rows={brands}
-          columns={columns}
+          columns={campaignColumns}
           components={{ Toolbar: GridToolbar }}
+          sortingOrder={['desc', 'asc']}
         />
       </Box>
     </Box>

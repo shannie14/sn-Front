@@ -199,6 +199,13 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
+              title="Stranahans"
+              to="/Stranahans"
+              icon={<ArrowDropUpIcon fontSize="small" />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
               title="Waterford"
               to="/Waterford"
               icon={<ArrowDropUpIcon fontSize="small" />}
