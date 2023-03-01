@@ -16,7 +16,6 @@ function Camparicard() {
             .then(response => response.json())
             .then(data => setData(data))
             .catch(error => console.error(error));
-        console.log("hi shannon" + data)
     }, []);
 
     useEffect(() => {
@@ -54,7 +53,6 @@ function Camparicard() {
             .then(response => response.json())
             .then(sale => setSale(sale))
             .catch(error => console.error(error));
-        console.log("hi shannon" + sale)
     }, []);
 
     useEffect(() => {

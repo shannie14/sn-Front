@@ -3,10 +3,10 @@ import { useEffect, useState } from "react"
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../theme";
-
-
 import { useTheme } from "@mui/material";
 import Header from "../components/visuals/Header"
+
+import campaignColumns from "../components/visuals/CampaignCol"
 
 const SNcampaigns = () => {
   console.log('server url is: ', process.env.REACT_APP_SERVER_URL)
@@ -40,87 +40,7 @@ const SNcampaigns = () => {
     }
 
     fetchBrands()
-  }, [])
-
-  const columns = [
-    {
-      field: "client",
-      headerName: "Client",
-      flex: 1,
-      // cellClassName: "client-column--cell",
-    },
-    {
-      field: "campaign",
-      headerName: "Campaign",
-      flex: 1,
-    },
-    {
-      field: "live",
-      headerName: "Launch Date",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-    {
-      field: "imp_total",
-      headerName: "Impressions",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-    {
-      field: "view_total",
-      headerName: "Views",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-    {
-      field: "signup",
-      headerName: "Sign-ups",
-      flex: 1,
-      sortComparator: (row1, row2) => {
-        if (!row1) {
-          return true;
-        }
-        if (!row2) {
-          return true;
-        }
-        return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-      }
-    },
-  ];
-
-  function CustomSortComparator(row1, row2) {
-    if (row1 < row2) {
-      return -1;
-    }
-    if (row2 < row1) {
-      return true;
-    }
-    return parseInt(row1.replaceAll(',', '')) - parseInt(row2.replaceAll(',', ''));
-  }
+  }, []);
 
   return (
     <Box m="20px">
@@ -163,9 +83,9 @@ const SNcampaigns = () => {
         <DataGrid
           getRowId={(row) => row._id}
           rows={brands}
-          columns={columns}
+          columns={campaignColumns}
           components={{ Toolbar: GridToolbar }}
-          sortComparator={CustomSortComparator}
+          sortingOrder={['desc', 'asc']}
         />
       </Box>
     </Box>

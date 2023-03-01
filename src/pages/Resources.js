@@ -3,6 +3,7 @@ import nbtv from "../img/channels.png"
 import gn from "../img/GN.png"
 import petportal from "../img/petportal.png"
 import sn from "../img/SN.png"
+import wip from "../img/WIP.png"
 import { tokens } from "../theme"
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
@@ -10,6 +11,8 @@ import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutl
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+
+// import { Kgolf } from "../components/Fetch/routes"
 
 
 const Resources = () => {
@@ -40,8 +43,8 @@ const Resources = () => {
                     <a href={"https://www.icloud.com/iclouddrive/0c9fTgbHcKLrxqSYve9Bd9CgQ#NBTV_CHANNELS"}><img src={nbtv} alt="nbtv channels" /></a>
                     <a href={"https://www.icloud.com/iclouddrive/0e6BNEAN50Buo9noobhwlYiZw#SPIRITS_NETWORK"}><img src={sn} alt="spirits network" /></a>
                     <a href={"https://www.icloud.com/iclouddrive/033JqPifoQtmEPoKVumNXvaRQ#GOLF_NATION"}><img src={gn} alt="golf nation" /></a>
-
                     <a href={"https://www.icloud.com/iclouddrive/04ayyuYZoxKaI5FFHGA05GYlg#PET_NETWORK"}><img src={petportal} alt="pet portal" /></a >
+                    <a href={"https://www.icloud.com/iclouddrive/06bmzMVrJxvQYKNrPEUL6Sw2A#WIP"}><img src={wip} alt="pet portal" /></a >
                 </div >)
             }
 

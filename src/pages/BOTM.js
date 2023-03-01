@@ -3,19 +3,10 @@ import { Doughnut } from 'react-chartjs-2';
 import { Chart } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-
-import { Box } from "@mui/material";
-import Header from "../components/visuals/Header"
-
-import { useTheme } from "@mui/material";
-import { tokens } from "../theme"
-
 Chart.register(ChartDataLabels);
 
 const Botm = () => {
 
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
 
     const data = {
         labels:
@@ -32,18 +23,20 @@ const Botm = () => {
     };
 
     const options = {
-        radius: 200,
-
-        layout: { align: { vertical: 'top' } },
-
+        // radius: 100,
+        cutoutPercentage: 20,
+        maintainAspectRatio: false,
+        responsive: true,
+        // height: 400,
+        // width: 800,
         plugins: {
             datalabels: {},
             legend: {
                 position: 'left', display: true,
                 labels: {
-                    boxWidth: 40,
-                    boxHeight: 40,
-                    font: { size: 18 }
+                    boxWidth: 30,
+                    boxHeight: 30,
+                    font: { size: 16 }
                 }
             }
         },
@@ -62,33 +55,21 @@ const Botm = () => {
 
 
     };
-
     return (
 
-        <div>
-            <Box display="flex" justifyContent="center" alignItems="top" minHeight="100vh">
-                <Box width={{ xs: '70%', sm: '80%', md: '70%', lg: '90%' }}>
+        <div display="flex" justifyContent="center" alignItems="top" flex-direction="column">
+            <div className="chart-container">
+                <h2>Monthly Subscribers</h2>
+                <Bargraph />
+            </div >
+            <div className="donut">
+                <h2>Current Members By Category</h2>
+                <div>
+                    <Doughnut data={data} options={options} onClick={null} width="200" justifyContent="left" />
+                </div>
 
-                    <Header
-                        title="Monthly Subscribers"
-                        subtitle="since March 2021"
-                    />
-
-                    <Bargraph />
-
-                    <Header title="Current Members by Category" />
-
-                    <div className="chart-container">
-
-                        <Doughnut data={data} options={options} onClick={null} />
-
-                    </div>
-
-
-                </Box >
-            </Box >
-        </div >
-    )
+            </div>
+        </div>)
 }
 export default Botm;
 
