@@ -6,9 +6,7 @@ import { tokens } from "../../theme";
 
 import { useTheme } from "@mui/material";
 
-
 const Bacardicampaigns = () => {
-
   const columns = [
     {
       field: "campaign",
@@ -16,7 +14,6 @@ const Bacardicampaigns = () => {
       flex: 1,
       minWidth: 200
     },
-
     {
       field: "live",
       headerName: "LAUNCH",
