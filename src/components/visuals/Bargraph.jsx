@@ -60,4 +60,3 @@ const options = {
 export default Bargraph;
 
     
-
