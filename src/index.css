@@ -67,6 +67,7 @@ body,
   justify-content: flex-start;
 }
 
+/*class element*/
 .image-row img {
   width: 100%;
   max-width: 200px;
@@ -81,8 +82,46 @@ a:link {
   text-decoration: none;
 }
 
+/*
+  111 > 101 >100 > 011 > 010 > 001
+*/
+
+/*selector*/
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+h5 {
+  font-size: 30px !important;
+}
+
+h6 {
+  font-size: 25px !important;; 
+}
+
 @media (max-width: 600px) {
-  .chart-container {
-    width: 10%
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 25px !important; 
+  }
+  h3 {
+    font-size: 25px !important;
+  }
+  h5 {
+    font-size: 25px !important;
+  }
+  h6 {
+    font-size: 20px !important;
   }
 }
+

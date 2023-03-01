@@ -32,7 +32,7 @@ const Resources = () => {
                     onClick={toggleOpen1}>{isOpen1 ? <KeyboardArrowDownOutlinedIcon /> : <ArrowForwardIosOutlinedIcon />}
                 </button>
 
-                <span><h1>Keynotes</h1></span>
+                <span><h2>Keynotes</h2></span>
             </Box >
 
             {isOpen1 && (
@@ -65,7 +65,7 @@ const Resources = () => {
                 <button style={{ backgroundColor: 'transparent', color: colors.grey[100], borderWidth: 0 }} onClick={toggleOpen2}>
                     {isOpen2 ? <KeyboardArrowDownOutlinedIcon /> : <ArrowForwardIosOutlinedIcon />}
                 </button>
-                <span><h1>Sizzle Videos</h1></span> </Box >
+                <span><h2>Sizzle Videos</h2></span> </Box >
             {isOpen2 && (<div>
                 <li>Investor Sizzle</li>
                 <li>Spirits, Golf & Cannabis</li>

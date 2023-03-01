@@ -4,7 +4,7 @@ import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { tokens } from "../theme";
 import EqualizerOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import FolderCopyOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import FolderCopyOutlinedIcon from "@mui/icons-material/FolderCopyOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LiquorIcon from '@mui/icons-material/Liquor';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
@@ -47,7 +47,7 @@ const Sidebar = () => {
           padding: "5px 35px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
-          color: "#1e6488 !important",
+          color: "#f38447 !important",
         },
         "& .pro-menu-item.active": {
           color: "#ab966d !important",
@@ -95,7 +95,7 @@ const Sidebar = () => {
               </Box>
               <Box textAlign="center">
                 <Typography
-                  variant="h2"
+                  variant="h3"
                   color={colors.grey[100]}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
@@ -208,7 +208,7 @@ const Sidebar = () => {
           </Box>
         </Menu>
       </ProSidebar>
-    </Box>
+    </Box >
   );
 };
 
