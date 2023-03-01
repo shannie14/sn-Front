@@ -165,20 +165,20 @@ export const themeSettings = (mode) => {
         typography: {
             fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
             fontSize: 12,
-            h1: {
-                fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-                fontSize: 40,
-                '@media (max-width:600px)': {
-                    fontSize: '4rem',
-                },
-            },
-            h2: {
-                fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-                fontSize: 32,
-                '@media (max-width:600px)': {
-                    fontSize: '4rem',
-                },
-            },
+            // h1: {
+            //     fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+            //     fontSize: 40,
+            //     '@media (max-width:600px)': {
+            //         fontSize: '4rem',
+            //     },
+            // },
+            // h2: {
+            //     fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+            //     fontSize: 32,
+            //     '@media (max-width:600px)': {
+            //         fontSize: '4rem',
+            //     },
+            // },
             h3: {
                 fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
                 fontSize: 24,
