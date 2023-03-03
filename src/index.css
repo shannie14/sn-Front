@@ -81,6 +81,11 @@ display: inline-block;
 
 a:link {
   text-decoration: none;
+  color: #ab966d;
+}
+
+a:visited {
+  color: #ab966d;
 }
 
 /*

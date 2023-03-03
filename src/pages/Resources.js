@@ -70,10 +70,9 @@ const Resources = () => {
                 </button>
                 <span><h2>Sizzle Videos</h2></span> </Box >
             {isOpen2 && (<div>
-                <li>Investor Sizzle</li>
-                <li>Spirits, Golf & Cannabis</li>
-                <li>Spirits Network</li>
-                <li>Golf Nation</li>
+                <li><a href='https://vimeo.com/762788390/4c7bd6d482'>Investor Sizzle</a></li>
+                <li><a href='https://vimeo.com/676012054'>Spirits Network</a></li>
+                <li><a href='https://vimeo.com/693683492'>Golf Nation</a></li>
 
             </div>)}
 
