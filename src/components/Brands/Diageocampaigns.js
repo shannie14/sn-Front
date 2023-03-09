@@ -5,10 +5,42 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { useTheme } from "@mui/material";
 
-import campaignColumns from "../visuals/CampaignCol";
-
-
 const Diageocampaigns = () => {
+
+  const campaignColumns = [
+    {
+      field: "campaign",
+      headerName: "CAMPAIGN",
+      flex: 0.5,
+      minWidth: 200
+    },
+    {
+      field: "brand",
+      headerName: "BRAND",
+      flex: 0.3,
+      minWidth: 200
+    },
+    {
+      field: "live",
+      headerName: "LAUNCH",
+      flex: 0.3,
+    },
+    {
+      field: "imp_total",
+      headerName: "IMPRESSIONS",
+      flex: 0.3,
+    },
+    {
+      field: "view_total",
+      headerName: "VIEWS",
+      flex: 0.3,
+    },
+    {
+      field: "signup",
+      headerName: "SIGN-UPS",
+      flex: 0.2,
+    },
+  ];
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);

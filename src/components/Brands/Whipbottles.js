@@ -7,7 +7,7 @@ import { useTheme } from "@mui/material";
 
 import SaleCol from "../visuals/SaleCol";
 
-function Bacardibottles() {
+function Whipbottles() {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -16,7 +16,7 @@ function Bacardibottles() {
   useEffect(() => {
     const fetchSales = async () => {
 
-      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/bacardi`)
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/whipshots`)
       const json = await response.json()
 
       const formattedBrands = json.map(brand => {
@@ -27,6 +27,9 @@ function Bacardibottles() {
               currency: "USD"
             });
           }
+          if (typeof value === 'number' && ['unitsT', 'units23', 'units22', 'units21', 'units20'].includes(key)) {
+            brand[key] = value.toLocaleString();
+          }
         }
         return brand;
       })
@@ -35,14 +38,6 @@ function Bacardibottles() {
     }
     fetchSales()
   }, [])
-
-  function DataGridTitle() {
-    return (
-      <Box style={{ width: "100%", display: "flex", justifyContent: "left", alignItems: "left" }}>
-        <h3>Users</h3>
-      </Box>
-    )
-  }
 
   return (
     <Box m="20px">
@@ -97,4 +92,4 @@ function Bacardibottles() {
 };
 
 
-export default Bacardibottles;
+export default Whipbottles;

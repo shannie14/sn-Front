@@ -1,7 +1,5 @@
 import React from "react";
 import Header from "../components/visuals/Header";
-import { tokens } from "../theme";
-
 
 //page components
 import Diageobottles from "../components/Brands/Diageobottles";
@@ -10,16 +8,12 @@ import Diageocampaigns from "../components/Brands/Diageocampaigns";
 import Diageocard from "../components/Brands/Diageocard"
 
 //architecture
-import { Box, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 
 
 
 //functiionality
 const Diageo = () => {
-
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
-
 
     //display
     return (
@@ -27,7 +21,7 @@ const Diageo = () => {
 
             {/* HEADER */}
             <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Header title="Diageo" />
+                <Header title="Diageo" subtitle="Bulleit, Don Julio, Johnnie Walker, Scotch Portfolio" />
             </Box>
 
             <Diageocard />

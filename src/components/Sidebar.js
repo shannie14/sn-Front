@@ -9,6 +9,8 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LiquorIcon from '@mui/icons-material/Liquor';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import "react-pro-sidebar/dist/css/styles.css";
+import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
+import LocalDrinkOutlinedIcon from '@mui/icons-material/LocalDrinkOutlined';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -114,24 +116,31 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
-              title="Dashboard"
-              to="/"
-              icon={<EqualizerOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
             <Typography
-              variant="h6"
-              color={colors.grey[300]}
+              variant="h4"
+              color={colors.grey[375]}
               sx={{ m: "15px 0 5px 20px" }}
             >
-              Clubs
+              SN Initiatives
             </Typography>
             <Item
               title="Bottle of the Month"
               to="/BOTM"
               icon={<LiquorIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="DropZones"
+              to="/DropZone"
+              icon={<BoltOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Sippers Bureau"
+              to="/SippersBureau"
+              icon={<LocalDrinkOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -143,12 +152,20 @@ const Sidebar = () => {
               setSelected={setSelected}
             /> */}
             <Typography
-              variant="h6"
-              color={colors.grey[300]}
+              variant="h4"
+              color={colors.grey[375]}
               sx={{ m: "15px 0 5px 20px" }}
             >
               Brands
             </Typography>
+            <Item
+              title="All Campaigns"
+              to="/"
+              icon={<EqualizerOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
             <Item
               title="Bacardi"
               to="/Bacardi"
@@ -156,6 +173,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+
             <Item
               title="Campari"
               to="/Campari"
@@ -178,29 +196,22 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Jeffersons"
-              to="/Jeffersons"
-              icon={<ArrowDropUpIcon fontSize="small" />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
               title="Maestro Dobel"
-              to="/Dobel"
+              to="MaestroDobel"
               icon={<ArrowDropUpIcon fontSize="small" />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Royal Salute"
-              to="/Royalsalute"
+              title="Pernod Ricard"
+              to="/PernodRicard"
               icon={<ArrowDropUpIcon fontSize="small" />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Stranahans"
-              to="/Stranahans"
+              title="Proximo"
+              to="/Proximo"
               icon={<ArrowDropUpIcon fontSize="small" />}
               selected={selected}
               setSelected={setSelected}
@@ -208,6 +219,13 @@ const Sidebar = () => {
             <Item
               title="Waterford"
               to="/Waterford"
+              icon={<ArrowDropUpIcon fontSize="small" />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="WhipShots"
+              to="/Whipshots"
               icon={<ArrowDropUpIcon fontSize="small" />}
               selected={selected}
               setSelected={setSelected}

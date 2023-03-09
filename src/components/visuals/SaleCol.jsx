@@ -1,4 +1,6 @@
-const SaleCol = [
+import { GridColDef} from "@mui/x-data-grid";
+
+const SaleCol: GridColDef[] = [
     {
       field: "product",
       headerName: "PRODUCT",
@@ -20,12 +22,14 @@ const SaleCol = [
       field: "units23",
       headerName: "2023",
       flex: 1,
+      cellClassName: 'years',
 
     },
     {
       field: "sales23",
       headerName: "",
       flex: 1,
+      cellClassName: 'years',
 
     },
     {
@@ -38,18 +42,21 @@ const SaleCol = [
       field: "sales22",
       headerName: "",
       flex: 1,
+     
 
     },
     {
       field: "units21",
       headerName: "2021",
       flex: 1,
+       cellClassName: 'years',
 
     },
     {
       field: "sales21",
       headerName: "",
       flex: 1,
+       cellClassName: 'years',
     }
   ];
 
