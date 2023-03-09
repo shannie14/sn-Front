@@ -1,18 +1,18 @@
 import React from "react";
 import Header from "../components/visuals/Header";
 
-
 //page components
-import Dobelbottles from "../components/Brands/Dobelbottles";
-import Dobelcampaigns from "../components/Brands/Dobelcampaigns";
-// import MainCard from "../components/visuals/MainCard"
-import Dobelcard from "../components/Brands/Dobelcard"
+import Whipbottles from "../components/Brands/Whipbottles";
+import Whipcampaigns from "../components/Brands/Whipcampaigns";
+import Whipcard from "../components/Brands/Whipcard"
 
 //architecture
 import { Box } from "@mui/material";
 
+
 //functiionality
-const Dobel = () => {
+const Whipshots = () => {
+
 
     //display
     return (
@@ -20,10 +20,10 @@ const Dobel = () => {
 
             {/* HEADER */}
             <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Header title="Maestro Dobel" />
+                <Header title="WhipShots" />
             </Box>
 
-            <Dobelcard />
+            <Whipcard />
 
             <Box
                 gridColumn="span 12"
@@ -31,8 +31,8 @@ const Dobel = () => {
 
                 overflow="auto">
 
-                <Dobelcampaigns />
-                <Dobelbottles />
+                <Whipcampaigns />
+                <Whipbottles />
 
             </Box>
         </Box>
@@ -42,4 +42,4 @@ const Dobel = () => {
     );
 };
 
-export default Dobel;
+export default Whipshots;

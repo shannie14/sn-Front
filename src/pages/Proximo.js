@@ -3,16 +3,21 @@ import Header from "../components/visuals/Header";
 
 
 //page components
-import Stranahansbottles from "../components/Brands/Stranahansbottles";
-import Stranahanscampaigns from "../components/Brands/Stranahanscampaigns";
-// import MainCard from "../components/visuals/MainCard"
-import Stranahanscard from "../components/Brands/Stranahanscard"
+import Proximobottles from "../components/Brands/Proximobottles";
+import Proximocampaigns from "../components/Brands/Proximocampaigns";
+// import MainCard from "../components/visuals/MainCard",
+import Proximocard from "../components/Brands/Proximocard"
 
 //architecture
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
+
+
 
 //functiionality
 const Proximo = () => {
+
+    const theme = useTheme();
+
 
     //display
     return (
@@ -20,10 +25,10 @@ const Proximo = () => {
 
             {/* HEADER */}
             <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Header title="Proximo" />
+                <Header title="Proximo Ricard" subtitle="Stranahans" />
             </Box>
 
-            <Stranahanscard />
+            <Proximocard />
 
             <Box
                 gridColumn="span 12"
@@ -31,8 +36,8 @@ const Proximo = () => {
 
                 overflow="auto">
 
-                <Stranahanscampaigns />
-                <Stranahansbottles />
+                <Proximocampaigns />
+                <Proximobottles />
 
             </Box>
         </Box>

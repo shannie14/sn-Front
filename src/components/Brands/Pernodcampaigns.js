@@ -5,51 +5,79 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { useTheme } from "@mui/material";
 
-import SaleCol from "../visuals/SaleCol";
 
-function Bacardibottles() {
+
+const Pernodcampaigns = () => {
+
+  const campaignColumns = [
+    {
+      field: "campaign",
+      headerName: "CAMPAIGN",
+      flex: 0.5,
+      minWidth: 200
+    },
+    {
+      field: "brand",
+      headerName: "BRAND",
+      flex: 0.3,
+      minWidth: 200
+    },
+    {
+      field: "live",
+      headerName: "LAUNCH",
+      flex: 0.3,
+    },
+    {
+      field: "imp_total",
+      headerName: "IMPRESSIONS",
+      flex: 0.3,
+    },
+    {
+      field: "view_total",
+      headerName: "VIEWS",
+      flex: 0.3,
+    },
+    {
+      field: "signup",
+      headerName: "SIGN-UPS",
+      flex: 0.2,
+    },
+  ];
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const [sales, setSales] = useState([])
+  const [brands, setBrands] = useState([])
 
+  //occurs after render
   useEffect(() => {
-    const fetchSales = async () => {
-
-      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/bacardi`)
+    const fetchBrands = async () => {
+      //initiate HTTP request
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/campaigns/pernod`)
       const json = await response.json()
 
       const formattedBrands = json.map(brand => {
         for (const [key, value] of Object.entries(brand)) {
-          if (typeof value === 'number' && ['salesT', 'sales23', 'sales22', 'sales21', 'sales20'].includes(key)) {
-            brand[key] = value.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD"
-            });
+          if (typeof value === 'number') {
+            brand[key] = value.toLocaleString();
           }
         }
         return brand;
       })
 
-      if (response.ok) { setSales(formattedBrands) }
+      if (response.ok) {
+        setBrands(formattedBrands)
+      }
     }
-    fetchSales()
-  }, [])
 
-  function DataGridTitle() {
-    return (
-      <Box style={{ width: "100%", display: "flex", justifyContent: "left", alignItems: "left" }}>
-        <h3>Users</h3>
-      </Box>
-    )
-  }
+    fetchBrands()
+  }, []);
 
   return (
     <Box m="20px">
-
       <Box
         m="40px 0 0 0"
-        height="50vh"
+        height="45vh"
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
@@ -83,11 +111,10 @@ function Bacardibottles() {
           },
         }}
       >
-        <h3>Bottle Sales</h3>
         <DataGrid
           getRowId={(row) => row._id}
-          rows={sales}
-          columns={SaleCol}
+          rows={brands}
+          columns={campaignColumns}
           components={{ Toolbar: GridToolbar }}
           sortingOrder={['desc', 'asc']}
         />
@@ -96,5 +123,4 @@ function Bacardibottles() {
   );
 };
 
-
-export default Bacardibottles;
+export default Pernodcampaigns;

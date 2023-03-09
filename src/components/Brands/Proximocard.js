@@ -1,8 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react"
 
-function Dobelcard() {
-
+function Pernodcard() {
     const [data, setData] = useState([])
     const [sum, setSum] = useState([])
     const [sale, setSale] = useState([])
@@ -12,7 +11,7 @@ function Dobelcard() {
 
     //IMP & VIEW
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/campaigns/dobel`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/campaigns/proximo`)
             .then(response => response.json())
             .then(data => setData(data))
             .catch(error => console.error(error));
@@ -50,7 +49,7 @@ function Dobelcard() {
 
     //Units & Sales
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/sales/dobel`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/sales/proximo`)
             .then(response => response.json())
             .then(sale => setSale(sale))
             .catch(error => console.error(error));
@@ -113,5 +112,4 @@ function Dobelcard() {
     );
 }
 
-
-export default Dobelcard;
+export default Pernodcard;

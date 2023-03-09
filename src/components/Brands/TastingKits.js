@@ -7,7 +7,7 @@ import { useTheme } from "@mui/material";
 
 import SaleCol from "../visuals/SaleCol";
 
-function Bacardibottles() {
+function TastingKits() {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -16,7 +16,7 @@ function Bacardibottles() {
   useEffect(() => {
     const fetchSales = async () => {
 
-      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/bacardi`)
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/tasting`)
       const json = await response.json()
 
       const formattedBrands = json.map(brand => {
@@ -36,17 +36,10 @@ function Bacardibottles() {
     fetchSales()
   }, [])
 
-  function DataGridTitle() {
-    return (
-      <Box style={{ width: "100%", display: "flex", justifyContent: "left", alignItems: "left" }}>
-        <h3>Users</h3>
-      </Box>
-    )
-  }
 
   return (
-    <Box m="20px">
 
+    <Box m="20px">
       <Box
         m="40px 0 0 0"
         height="50vh"
@@ -83,7 +76,7 @@ function Bacardibottles() {
           },
         }}
       >
-        <h3>Bottle Sales</h3>
+        <h3>Tasting Kits</h3>
         <DataGrid
           getRowId={(row) => row._id}
           rows={sales}
@@ -97,4 +90,4 @@ function Bacardibottles() {
 };
 
 
-export default Bacardibottles;
+export default TastingKits;

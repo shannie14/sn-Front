@@ -164,49 +164,70 @@ export const themeSettings = (mode) => {
         },
         typography: {
             fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-            fontSize: 12,
-            // h1: {
-            //     fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-            //     fontSize: 40,
-            //     '@media (max-width:600px)': {
-            //         fontSize: '4rem',
-            //     },
-            // },
-            // h2: {
-            //     fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-            //     fontSize: 32,
-            //     '@media (max-width:600px)': {
-            //         fontSize: '4rem',
-            //     },
-            // },
+            htmlFontSize: 16,
+            fontWeightLight: 300,
+            fontWeightRegular: 400,
+            fontWeightMedium: 500,
+            fontWeightBold: 600,
+            h1: {
+                fontWeight: 600,
+                fontSize: '2.375rem',
+                lineHeight: 1.21
+            },
+            h2: {
+                fontWeight: 100,
+                fontSize: '1.575rem',
+                lineHeight: 1.27
+            },
             h3: {
-                fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-                fontSize: 24,
-                '@media (max-width:600px)': {
-                    fontSize: '4rem',
-                },
+                fontWeight: 100,
+                fontSize: '1.2rem',
+                lineHeight: 1.33
             },
             h4: {
-                fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-                fontSize: 20,
-                '@media (max-width:600px)': {
-                    fontSize: '4rem',
-                },
+                fontWeight: 600,
+                fontSize: '1.25rem',
+                lineHeight: 1.4
             },
             h5: {
-                fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-                fontSize: 16,
-                '@media (max-width:600px)': {
-                    fontSize: '4rem',
-                },
+                fontWeight: 600,
+                fontSize: '1rem',
+                lineHeight: 1.5
             },
             h6: {
-                fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-                fontSize: 14,
-                '@media (max-width:600px)': {
-                    fontSize: '4rem',
-                },
+                fontWeight: 400,
+                fontSize: '0.875rem',
+                lineHeight: 1.57
             },
+            caption: {
+                fontWeight: 400,
+                fontSize: '0.75rem',
+                lineHeight: 1.66
+            },
+            body1: {
+                fontSize: '0.875rem',
+                lineHeight: 1.57
+            },
+            body2: {
+                fontSize: '0.75rem',
+                lineHeight: 1.66
+            },
+            subtitle1: {
+                fontSize: '0.875rem',
+                fontWeight: 600,
+                lineHeight: 1.57
+            },
+            subtitle2: {
+                fontSize: '0.75rem',
+                fontWeight: 500,
+                lineHeight: 1.66
+            },
+            overline: {
+                lineHeight: 1.66
+            },
+            button: {
+                textTransform: 'capitalize'
+            }
         },
     };
 };

@@ -74,6 +74,7 @@ function Jeffersonsbottles() {
           },
         }}
       >
+        <h3>Bottle Sales</h3>
         <DataGrid
           getRowId={(row) => row._id}
           rows={sales}

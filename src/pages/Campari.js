@@ -1,7 +1,5 @@
 import React from "react";
 import Header from "../components/visuals/Header";
-import { tokens } from "../theme";
-
 
 //page components
 import Camparibottles from "../components/Brands/Camparibottles";
@@ -10,13 +8,10 @@ import Camparicampaigns from "../components/Brands/Camparicampaigns";
 import Camparicard from "../components/Brands/Camparicard";
 
 //architecture
-import { Box, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 
 //functiionality
 const Campari = () => {
-
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
 
 
     //display
@@ -25,7 +20,7 @@ const Campari = () => {
 
             {/* HEADER */}
             <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Header title="Campari" />
+                <Header title="Campari" subtitle="Espolon" />
             </Box>
 
             <Camparicard />
