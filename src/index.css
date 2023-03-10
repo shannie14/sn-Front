@@ -178,7 +178,9 @@ h6 {
 }
 
 .years {
-  background-color: rgb(180, 180, 180, 0.2)
+  background-color: rgb(180, 180, 180, 0.2);
+  display: flex;
+  justify-content: flex-start;
 }
 
 .dz {

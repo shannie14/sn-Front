@@ -37,13 +37,25 @@ const SNcampaigns = () => {
       headerName: "Impressions",
       flex: 0.5,
       type: "number",
+      cellClassName: 'years',
+    },
+    {
+      field: "imp_min",
+      headerName: "Guaranteed Imp.",
+      flex: 0.5,
     },
     {
       field: "view_total",
       headerName: "Views",
       flex: 0.5,
-      type: "number"
+      type: "number",
+      cellClassName: 'years',
 
+    },
+    {
+      field: "view_min",
+      headerName: "Guaranteed Views",
+      flex: 0.5,
     },
     {
       field: "signup",
@@ -67,11 +79,11 @@ const SNcampaigns = () => {
       // Loop through each object returned from backend
       const formattedBrands = json.map(brand => {
 
-        // for (const [key, value] of Object.entries(brand)) {
-        //   if (typeof value === 'number') {
-        //     brand[key] = value.toLocaleString();
-        //   }
-        // }
+        for (const [key, value] of Object.entries(brand)) {
+          if (typeof value === 'number') {
+            brand[key] = value.toLocaleString();
+          }
+        }
         return brand;
       }
       );
@@ -97,6 +109,7 @@ const SNcampaigns = () => {
           },
           "& .MuiDataGrid-cell": {
             borderBottom: "none",
+            textAlign: "left",
           },
           "& .name-column--cell": {
             color: colors.greenAccent[300],

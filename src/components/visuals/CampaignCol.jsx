@@ -14,10 +14,23 @@ const campaignColumns = [
       field: "imp_total",
       headerName: "IMPRESSIONS",
       flex: 0.3,
+        cellClassName: 'years',
+    },
+        {
+      field: "imp_min",
+      headerName: "GUARANTEED IMP",
+      flex: 0.3,
+      
     },
     {
       field: "view_total",
       headerName: "VIEWS",
+      flex: 0.3,
+        cellClassName: 'years',
+    },
+        {
+      field: "view_min",
+      headerName: "GUARANTEED VIEWS",
       flex: 0.3,
     },
     {

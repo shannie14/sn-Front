@@ -29,10 +29,22 @@ const Diageocampaigns = () => {
       field: "imp_total",
       headerName: "IMPRESSIONS",
       flex: 0.3,
+      cellClassName: 'years',
+    },
+    {
+      field: "imp_min",
+      headerName: "Guaranteed Imp.",
+      flex: 0.3,
     },
     {
       field: "view_total",
       headerName: "VIEWS",
+      flex: 0.3,
+      cellClassName: 'years',
+    },
+    {
+      field: "view_min",
+      headerName: "Guaranteed Views",
       flex: 0.3,
     },
     {
