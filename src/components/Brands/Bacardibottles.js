@@ -19,30 +19,23 @@ function Bacardibottles() {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/bacardi`)
       const json = await response.json()
 
-      const formattedBrands = json.map(brand => {
-        for (const [key, value] of Object.entries(brand)) {
-          if (typeof value === 'number' && ['salesT', 'sales23', 'sales22', 'sales21', 'sales20'].includes(key)) {
-            brand[key] = value.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD"
-            });
-          }
-        }
-        return brand;
-      })
+      // const formattedBrands = json.map(brand => {
+      //   for (const [key, value] of Object.entries(brand)) {
+      //     if (typeof value === 'number' && ['salesT', 'sales23', 'sales22', 'sales21', 'sales20'].includes(key)) {
+      //       brand[key] = value.toLocaleString("en-US", {
+      //         style: "currency",
+      //         currency: "USD"
+      //       });
+      //     }
+      //   }
+      //   return brand;
+      // })
 
-      if (response.ok) { setSales(formattedBrands) }
+      if (response.ok) { setSales(json) }
     }
     fetchSales()
   }, [])
 
-  function DataGridTitle() {
-    return (
-      <Box style={{ width: "100%", display: "flex", justifyContent: "left", alignItems: "left" }}>
-        <h3>Users</h3>
-      </Box>
-    )
-  }
 
   return (
     <Box m="20px">

@@ -30,22 +30,30 @@ const Diageocampaigns = () => {
       headerName: "IMPRESSIONS",
       flex: 0.3,
       cellClassName: 'years',
+      valueFormatter: ({ value }) => value !== undefined ? value.toLocaleString() : "",
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
     },
     {
       field: "imp_min",
       headerName: "Guaranteed Imp.",
       flex: 0.3,
+      valueFormatter: ({ value }) => value !== undefined ? value.toLocaleString() : "",
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
     },
     {
       field: "view_total",
       headerName: "VIEWS",
       flex: 0.3,
       cellClassName: 'years',
+      valueFormatter: ({ value }) => value !== undefined ? value.toLocaleString() : "",
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
     },
     {
       field: "view_min",
       headerName: "Guaranteed Views",
       flex: 0.3,
+      valueFormatter: ({ value }) => value !== undefined ? value.toLocaleString() : "",
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
     },
     {
       field: "signup",
@@ -66,17 +74,17 @@ const Diageocampaigns = () => {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/campaigns/diageo`)
       const json = await response.json()
 
-      const formattedBrands = json.map(brand => {
-        for (const [key, value] of Object.entries(brand)) {
-          if (typeof value === 'number') {
-            brand[key] = value.toLocaleString();
-          }
-        }
-        return brand;
-      })
+      // const formattedBrands = json.map(brand => {
+      //   for (const [key, value] of Object.entries(brand)) {
+      //     if (typeof value === 'number') {
+      //       brand[key] = value.toLocaleString();
+      //     }
+      //   }
+      //   return brand;
+      // })
 
       if (response.ok) {
-        setBrands(formattedBrands)
+        setBrands(json)
       }
     }
 

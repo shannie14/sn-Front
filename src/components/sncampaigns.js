@@ -37,18 +37,25 @@ const SNcampaigns = () => {
       headerName: "Impressions",
       flex: 0.5,
       type: "number",
+      valueFormatter: ({ value }) => value !== undefined ? value.toLocaleString() : "",
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
       cellClassName: 'years',
+
     },
     {
       field: "imp_min",
       headerName: "Guaranteed Imp.",
       flex: 0.5,
+      valueFormatter: ({ value }) => value !== undefined ? value.toLocaleString() : "",
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
     },
     {
       field: "view_total",
       headerName: "Views",
       flex: 0.5,
       type: "number",
+      valueFormatter: ({ value }) => value !== undefined ? value.toLocaleString() : "",
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
       cellClassName: 'years',
 
     },
@@ -56,12 +63,16 @@ const SNcampaigns = () => {
       field: "view_min",
       headerName: "Guaranteed Views",
       flex: 0.5,
+      valueFormatter: ({ value }) => value !== undefined ? value.toLocaleString() : "",
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
     },
     {
       field: "signup",
       headerName: "Sign-ups",
       flex: 0.5,
-      type: "number"
+      type: "number",
+      valueFormatter: ({ value }) => value !== undefined ? value.toLocaleString() : "",
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
 
     },
   ];
@@ -76,20 +87,8 @@ const SNcampaigns = () => {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/campaigns`)
       const json = await response.json()
 
-      // Loop through each object returned from backend
-      const formattedBrands = json.map(brand => {
-
-        for (const [key, value] of Object.entries(brand)) {
-          if (typeof value === 'number') {
-            brand[key] = value.toLocaleString();
-          }
-        }
-        return brand;
-      }
-      );
-
       if (response.ok) {
-        setBrands(formattedBrands)
+        setBrands(json)
       }
     }
 

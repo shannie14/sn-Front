@@ -19,19 +19,19 @@ function TastingKits() {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/tasting`)
       const json = await response.json()
 
-      const formattedBrands = json.map(brand => {
-        for (const [key, value] of Object.entries(brand)) {
-          if (typeof value === 'number' && ['salesT', 'sales23', 'sales22', 'sales21', 'sales20'].includes(key)) {
-            brand[key] = value.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD"
-            });
-          }
-        }
-        return brand;
-      })
+      // const formattedBrands = json.map(brand => {
+      //   for (const [key, value] of Object.entries(brand)) {
+      //     if (typeof value === 'number' && ['salesT', 'sales23', 'sales22', 'sales21', 'sales20'].includes(key)) {
+      //       brand[key] = value.toLocaleString("en-US", {
+      //         style: "currency",
+      //         currency: "USD"
+      //       });
+      //     }
+      //   }
+      //   return brand;
+      // })
 
-      if (response.ok) { setSales(formattedBrands) }
+      if (response.ok) { setSales(json) }
     }
     fetchSales()
   }, [])

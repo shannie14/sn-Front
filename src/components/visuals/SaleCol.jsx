@@ -11,11 +11,18 @@ const SaleCol: GridColDef[] = [
       field: "unitsT",
       headerName: "ALL UNITS SOLD",
       flex: 1,
+      valueFormatter: ({ value }) => (value ?? 0).toLocaleString(),
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
     },
     {
       field: "salesT",
       headerName: "ALL SALES",
       flex: 1,
+  valueFormatter: ({ value }) => (value ?? 0).toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD"
+            }),
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
 
     },
     {
@@ -23,6 +30,8 @@ const SaleCol: GridColDef[] = [
       headerName: "2023",
       flex: 1,
       cellClassName: 'years',
+      valueFormatter: ({ value }) => (value ?? 0).toLocaleString(),
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
 
     },
     {
@@ -30,33 +39,50 @@ const SaleCol: GridColDef[] = [
       headerName: "",
       flex: 1,
       cellClassName: 'years',
+  valueFormatter: ({ value }) => (value ?? 0).toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD"
+            }),
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
 
     },
     {
       field: "units22",
       headerName: "2022",
       flex: 1,
-
+      valueFormatter: ({ value }) => (value ?? 0).toLocaleString(),
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
     },
     {
       field: "sales22",
       headerName: "",
       flex: 1,
-     
+  valueFormatter: ({ value }) => (value ?? 0).toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD"
+            }),
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),    
 
     },
     {
       field: "units21",
       headerName: "2021",
       flex: 1,
-       cellClassName: 'years',
+      cellClassName: 'years',
+      valueFormatter: ({ value }) => (value ?? 0).toLocaleString(),
+      sortComparator: (v1, v2) => Number(v1) - Number(v2),
 
     },
     {
       field: "sales21",
       headerName: "",
       flex: 1,
-       cellClassName: 'years',
+      cellClassName: 'years',
+   valueFormatter: ({ value }) => (value ?? 0).toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD"
+            }),
+      sortComparator: (v1, v2) => Number(v1) - Number(v2), 
     }
   ];
 

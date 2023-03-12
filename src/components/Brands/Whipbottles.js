@@ -19,22 +19,22 @@ function Whipbottles() {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/sales/whipshots`)
       const json = await response.json()
 
-      const formattedBrands = json.map(brand => {
-        for (const [key, value] of Object.entries(brand)) {
-          if (typeof value === 'number' && ['salesT', 'sales23', 'sales22', 'sales21', 'sales20'].includes(key)) {
-            brand[key] = value.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD"
-            });
-          }
-          if (typeof value === 'number' && ['unitsT', 'units23', 'units22', 'units21', 'units20'].includes(key)) {
-            brand[key] = value.toLocaleString();
-          }
-        }
-        return brand;
-      })
+      // const formattedBrands = json.map(brand => {
+      //   for (const [key, value] of Object.entries(brand)) {
+      //     if (typeof value === 'number' && ['salesT', 'sales23', 'sales22', 'sales21', 'sales20'].includes(key)) {
+      //       brand[key] = value.toLocaleString("en-US", {
+      //         style: "currency",
+      //         currency: "USD"
+      //       });
+      //     }
+      //     if (typeof value === 'number' && ['unitsT', 'units23', 'units22', 'units21', 'units20'].includes(key)) {
+      //       brand[key] = value.toLocaleString();
+      //     }
+      //   }
+      //   return brand;
+      // })
 
-      if (response.ok) { setSales(formattedBrands) }
+      if (response.ok) { setSales(json) }
     }
     fetchSales()
   }, [])
