@@ -12,6 +12,7 @@ import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDown
 import CampaignOutlinedIcon from '@mui/icons-material/CampaignOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
+import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 
 // import { Kgolf } from "../components/Fetch/routes"
 
@@ -32,6 +33,10 @@ const Resources = () => {
 
     function contacts() {
         window.location.href = 'https://docs.google.com/spreadsheets/d/1JRVNRSwo-pBaeK4Y6qNCehsSAPOtM6fxf20oo6wymVw/edit?usp=sharing';
+    }
+
+    function bd() {
+        window.location.href = '/BD';
     }
 
 
@@ -87,6 +92,12 @@ const Resources = () => {
 
                 </div>)
             }
+            < Box display="flex" flexDirection="row" alignItems="left" >
+                <button style={{ backgroundColor: 'transparent', color: colors.grey[100], borderWidth: 0 }} onClick={bd}>
+                    {<MenuBookOutlinedIcon />}
+                </button>
+                <h3 style={{ cursor: 'pointer' }} onClick={bd}>How To Close Deals & Manage Delivery</h3>
+            </Box >
 
             < Box display="flex" flexDirection="row" alignItems="left" >
                 <button style={{ backgroundColor: 'transparent', color: colors.grey[100], borderWidth: 0 }} onClick={handleClick}>

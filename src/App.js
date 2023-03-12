@@ -23,6 +23,8 @@ import Waterford from "../src/pages/Waterford"
 import Wash from "../src/pages/Wash"
 import Whipshots from '../src/pages/Whipshots'
 
+import BD from '../src/pages/BD'
+
 // import Login from '../src/components/Login'
 
 
@@ -46,6 +48,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/brand" element={<Brandlist />} />
               <Route path="/BOTM" element={<Botm />} />
+              <Route path="/BD" element={<BD />} />
               <Route path="/DropZone" element={<DropZone />} />
               <Route path="/SippersBureau" element={<SippersBureau />} />
               <Route path="/Bacardi" element={<Bacardi />} />

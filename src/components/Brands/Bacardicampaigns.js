@@ -21,17 +21,17 @@ const Bacardicampaigns = () => {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/campaigns/bacardi`)
       const json = await response.json()
 
-      const formattedBrands = json.map(brand => {
-        for (const [key, value] of Object.entries(brand)) {
-          if (typeof value === 'number') {
-            brand[key] = value.toLocaleString();
-          }
-        }
-        return brand;
-      })
+      // const formattedBrands = json.map(brand => {
+      //   for (const [key, value] of Object.entries(brand)) {
+      //     if (typeof value === 'number') {
+      //       brand[key] = value.toLocaleString();
+      //     }
+      //   }
+      //   return brand;
+      // })
 
       if (response.ok) {
-        setBrands(formattedBrands)
+        setBrands(json)
       }
     }
 
